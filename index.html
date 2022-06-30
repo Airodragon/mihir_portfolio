@@ -59,7 +59,8 @@
             background: transparent;
             top: 50%;
             left: -100px;
-            mix-blend-mode: difference;
+            /* mix-blend-mode: difference; */
+            
             pointer-events: none;
             transition: all 50ms ease-out;
             box-shadow: 0px 0px 15px rgba(245, 245, 245, 0.652);
@@ -71,6 +72,35 @@
     }
     .timeline-text{
         text-align: justify;
+    }
+    .inner-cursor{
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        /* border: 2px solid white; */
+        /* background: transparent; */
+        filter: opacity(50%);
+        background-color: white;
+        animation: cursor-animation 2s infinite linear;
+        border: none !important;
+    }
+    @keyframes cursor-animation {
+        0%{
+            width: 50%;
+            height: 50%;
+        }
+        50%{
+            width:100%;
+            height:100%;
+        }
+        100%{
+            width: 50%;
+            height: 50%;
+        }
     }
     </style>
 
@@ -89,7 +119,9 @@
 <body>
 
     <!-- MOUSE CHANGE -->
-    <div class='cursor' id="cursor"></div>
+    <div class='cursor' id="cursor">
+        <div class="inner-cursor"></div>
+    </div>
 
     <script>
         var cursor = document.querySelector("#cursor");
@@ -158,7 +190,8 @@
                             <div class="card border-0" style="background-color: transparent;">
                                 <div class="card-body">
                                     <h3 class="card-title fs-2">Mihir Srivastava</h3>
-                                    <p class="card-text changing-text"></p>
+                                    <span class="card-text changing-text">I am a</span>
+                                    <!-- <span class="blink">|</span> -->
                                     <p class="card-text description">
                                         A curious learner and a creative
                                         and passionate programmer and
@@ -481,7 +514,7 @@
 
     <script>
         let changing_text = document.querySelector(".changing-text")
-        let arr = ["I am a web developer", "I am a web designer", "I am a python developer"]
+        let arr = ["I am a web developer.","I am a ","I am a web designer.","I am a", "I am a python developer.","I am a"]
         let i = 0
         setInterval(() => {
             changing_text.innerHTML = arr[i]
@@ -490,7 +523,7 @@
             if (i == arr.length) {
                 i = 0
             }
-        }, 800);
+        },1000);
     </script>
 
     <script>
