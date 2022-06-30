@@ -1,0 +1,47 @@
+
+
+        .navbar {
+            font-family: 'Anek Latin', sans-serif;
+            font-weight: 700;
+            background-color: transparent;
+            /* font-size: 2rem; */
+            letter-spacing: 3px;
+        }
+
+        .navbar-brand,
+        .navbar-toggler,
+        .nav-link,
+        .navbar-toggler-icon {
+            color: white !important;
+            background-color: transparent;
+            border: 0px;
+            outline: 0px;
+        }
+
+        .nav-item {
+            display: inline-block;
+            position: relative;
+            color: #fff;
+        }
+
+        .nav-item:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ffffff;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        .nav-item:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .resume-download:hover {
+            transform: scale(1.5);
+        }
